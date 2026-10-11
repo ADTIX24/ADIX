@@ -1,0 +1,49 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "script.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/index\\.html",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/html"
+      }
+    },
+    {
+      "src": "/style\\.css",
+      "status": 200,
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "src": "/script\\.js",
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "status": 200,
+      "dest": "/index.html"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "clean": true
+}
